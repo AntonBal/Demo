@@ -10,5 +10,5 @@ import Foundation
 import RxSwift
 
 protocol NewsUseCase {
-    func all() -> Single<AllNews>
+    func all(params: NewsParams) -> Single<AllNews>
 }

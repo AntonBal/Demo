@@ -9,10 +9,25 @@
 import Foundation
 
 struct AllNews: Codable {
+    enum CodingKeys: String, CodingKey {
+        case news = "value"
+    }
+    
     let news: [News]
 }
 
 struct News: Codable {
     let title: String
+    let url: URL
+    let image: NewsImage
+    
+    enum CodingKeys: String, CodingKey {
+        case title = "name"
+        case url = "webSearchUrl"
+        case image
+    }
+}
+
+struct NewsImage: Codable {
     let url: URL
 }

@@ -8,8 +8,7 @@
 
 import Foundation
 
-
-class Platform: UseCasesProvider {
+final class Platform: UseCasesProvider {
     var news: NewsUseCase
     
     init(environment: Environment) {

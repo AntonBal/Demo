@@ -11,5 +11,5 @@ import Foundation
 enum Environment {
     case develop
     
-    var baseURLPath: String { "" }
+    var baseURLPath: String { "https://bing-news-search1.p.rapidapi.com/news/" }
 }

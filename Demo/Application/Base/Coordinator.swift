@@ -22,7 +22,7 @@ extension CoordinatorProtocol {
 
 extension CoordinatorProtocol {
     
-    func makeController<T: UIViewController & Makeable & ViewModelContainer>(viewModel: T.ViewModel, _ builder: T.Builder) -> T
+    func makeController<T: UIViewController & Makeable & ViewModelContainer>(viewModel: T.ViewModel, _ builder: T.Builder? = nil) -> T
         
         where T.Value == T {
             
@@ -30,7 +30,7 @@ extension CoordinatorProtocol {
                 fatalError("V.UseCases should be subset of Coordinator.UseCasesProvider")
             }
             
-            let controller: T = T.make(builder)
+            let controller: T = T.make(builder ?? { _ in })
             controller.viewModel = viewModel
             controller.viewModel.coordinator = self
             controller.viewModel.useCases = useCases
